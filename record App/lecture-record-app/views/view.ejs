@@ -1,0 +1,160 @@
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/assets/css/style.css">
+    <link type="text/css" rel="stylesheet" href="/assets/fonts/poppins.css">
+</head>
+<title>Inspect Lecture - <%=courseTitle%></title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        font-family: poppins;
+    }
+
+    .record-container {
+        width: 100%;
+        height: 100vh;
+        background-color: #080b06;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .record-footage {
+        display: flex;
+        flex: .8;
+    }
+
+    .record-footage video {
+        width: 100%;
+        height: 100%;
+    }
+
+    .record-panel {
+        display: flex;
+        flex: .2;
+        justify-content: space-between;
+        padding: 0 3%;
+        width: 100%;
+        align-items: center;
+
+    }
+
+    .record-details {
+        display: flex;
+        flex-direction: column;
+        color: #f2f2f2;
+    }
+
+    .record-details span, h6 {
+        display: flex;
+        color: #f2f2f2;
+        align-items: center;
+    }
+
+    .record-details span h6 {
+        color: rgba(7, 224, 7, 0.724);
+    }
+
+    .record-panel input, select {
+        max-width: 200px;
+        min-height: 50px;
+        outline: none;
+        border: none;
+        background-color: #f2f2f2 !important;
+        color: #080b06;
+    }
+
+    .record-panel button {
+        width: 200px;
+        height: 50px;
+        outline: none;
+        border: none;
+        background-color: #f10606d2;
+        color: #f2f2f2;
+    }
+</style>
+
+<body>
+    <div class="record-container">
+        <div class="record-footage">
+            <video src="" autoplay controls></video>
+        </div>
+        <div class="record-panel">
+            <div class="record-details">
+                <h3><%=lecturerName%></h3>
+                <span>
+                    <h5><%=courseTitle%> - </h5>
+                    <h6><%=courseDay%></h6>
+                </span>
+            </div>
+            <h5 id="attendance"></h5>
+            <h5 id="startTime"></h5>
+            <h5 id="duration"></h5>
+            <select name="" id="" selected="1">
+                    <option value="1">Week 1</option>
+                    <option value="2">Week 2</option>
+                    <option value="3">Week 3</option>
+                    <option value="4">Week 4</option>
+                    <option value="5">Week 5</option>
+                    <option value="6">Week 6</option>
+                    <option value="7">Week 7</option>
+                    <option value="8">Week 8</option>
+                    <option value="9">Week 9</option>
+                    <option value="10">Week 10</option>
+                    <option value="11">Week 11</option>
+                    <option value="12">Week 12</option>
+                    <option value="13">Week 13</option>
+                    <option value="14">Week 14</option>
+            </select>
+            <button type="button" id='stop-record' onclick="window.history.back()">Back</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js"
+        integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+       const lectures = <%-lectures%>;
+       const video = document.querySelector('video');
+       const attendance = document.querySelector('#attendance');
+       const startTime = document.querySelector('#startTime');
+       const duration = document.querySelector('#duration');
+       const weeks = document.querySelector('select');
+
+
+       window.onload = function() {
+           if (!lectures || lectures.length <= 0) { 
+               alert("No Lectures Available for this course yet!"); window.history.back();
+           } else {
+               update(lectures[0]);
+           }
+       }
+
+       weeks.onchange = function() {
+            const current = lectures.find(lec => lec.week === weeks.value);
+
+            if (!current || current === undefined) alert(`No Lecture for week ${weeks.value}!`); return;
+
+            update(current);
+       }
+
+       function update(current) {
+            video.src = current.mediaURL;
+            attendance.textContent = 'Total Attendance: ' + current.attendance;
+            startTime.textContent = 'Start Time: ' + new Date(parseInt(current.startTime)).toLocaleTimeString();
+            duration.textContent = 'Duration: ' + current.duration;
+       }
+    </script>
+</body>
+
+</html>

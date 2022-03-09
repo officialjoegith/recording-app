@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="text/css" rel="stylesheet" href="/assets/css/bootstrap.min.css">
+<link type="text/css" rel="stylesheet" href="/assets/css/style.css">
+<link type="text/css" rel="stylesheet" href="/assets/fonts/poppins.css">
+</head>
+  <title>Admin | Lecture Record Application</title>
+</head>
+<body>
+    <div>
+      <h6>Admin</h6>
+    </div>
+    <div id="credits" class="container mt-4 pt-2 mb-5">
+        <!-- monday -->
+        <div class="row">
+            <h3 class="text-center my-3 pb-2">Monday</h3>
+            
+            <% courses.filter(course => course.courseDay === 'Monday').map(course => { %>
+            <div class="col-md-4 mb-4">
+                <div class="card bg-2 b-none shadow-lg">
+                    <div class="card-body text py-5 px-3">
+                        <img width="80px" height="80px" class="mb-2" src="/assets/user.png">
+                        <p class="mb-1 small"><%=course.lecturerName%></p>
+                        <h6><%=course.courseTitle%></h6>
+                        <h6><%=course.courseCode%></h6>
+                        <h6><%=course.courseTime%></h6>
+                        <a href="http://localhost:5500/view/<%=course.key%>" class="btn btn-success px-4 mt-2">View Lecture</a>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+        <!-- Tuesday -->
+            <div class="row">
+            <h3 class="text-center my-3 pb-2">Tuesday</h3>
+          
+              <% courses.filter(course => course.courseDay === 'Tuesday').map(course => { %>
+            <div class="col-md-4 mb-4">
+                <div class="card bg-2 b-none shadow-lg">
+                    <div class="card-body text py-5 px-3">
+                        <img width="80px" height="80px" class="mb-2" src="/assets/user.png">
+                        <p class="mb-1 small"><%=course.lecturerName%></p>
+                        <h6><%=course.courseTitle%></h6>
+                        <h6><%=course.courseCode%></h6>
+                        <h6><%=course.courseTime%></h6>
+                        <a href="http://localhost:5500/view/<%=course.key%>" class="btn btn-success px-4 mt-2">View Lecture</a>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+           
+         </div>
+        <!-- wednesday -->
+         <div class="row">
+            <h3 class="text-center my-3 pb-2">Wednesday</h3>
+               <% courses.filter(course => course.courseDay === 'Wednesday').map(course => { %>
+            <div class="col-md-4 mb-4">
+                <div class="card bg-2 b-none shadow-lg">
+                    <div class="card-body text py-5 px-3">
+                        <img width="80px" height="80px" class="mb-2" src="/assets/user.png">
+                        <p class="mb-1 small"><%=course.lecturerName%></p>
+                        <h6><%=course.courseTitle%></h6>
+                        <h6><%=course.courseCode%></h6>
+                        <h6><%=course.courseTime%></h6>
+                        <a href="http://localhost:5500/view/<%=course.key%>" class="btn btn-success px-4 mt-2">View Lecture</a>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+            </div>
+        <!-- thursday -->
+         <div class="row">
+            <h3 class="text-center my-3 pb-2">Thursday</h3>
+              <% courses.filter(course => course.courseDay === 'Thursday').map(course => { %>
+            <div class="col-md-4 mb-4">
+                <div class="card bg-2 b-none shadow-lg">
+                    <div class="card-body text py-5 px-3">
+                        <img width="80px" height="80px" class="mb-2" src="/assets/user.png">
+                        <p class="mb-1 small"><%=course.lecturerName%></p>
+                        <h6><%=course.courseTitle%></h6>
+                        <h6><%=course.courseCode%></h6>
+                        <h6><%=course.courseTime%></h6>
+                        <a href="http://localhost:5500/view/<%=course.key%>" class="btn btn-success px-4 mt-2">View Lecture</a>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+            </div>
+        <!-- friday -->
+            
+        <div class="row">
+            <h3 class="text-center my-3 pb-2">Friday</h3>
+              <% courses.filter(course => course.courseDay === 'Friday').map(course => { %>
+            <div class="col-md-4 mb-4">
+                <div class="card bg-2 b-none shadow-lg">
+                    <div class="card-body text py-5 px-3">
+                        <img width="80px" height="80px" class="mb-2" src="/assets/user.png">
+                        <p class="mb-1 small"><%=course.lecturerName%></p>
+                        <h6><%=course.courseTitle%></h6>
+                        <h6><%=course.courseCode%></h6>
+                        <h6><%=course.courseTime%></h6>
+                        <a href="http://localhost:5500/view/<%=course.key%>" class="btn btn-success px-4 mt-2">View Lecture</a>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+     </div>
+</body>
+</html>
+
+            
+            

@@ -1,0 +1,52 @@
+body{
+    background: #111;
+    font-family: Poppins;
+    color: #fff;
+}
+.bg-2{
+    background: #222;
+}
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
+    font-weight: bold;
+}
+input, select, textarea{
+    background: inherit ! important;
+    border-radius: 0px ! important;
+}
+a{
+    text-decoration: none;
+}
+p{
+    opacity: 0.8;
+}
+.b-none{
+    border: none ! important;
+}
+.mr-1{
+    margin-right: 0.7rem;
+}
+.lh-3{
+    line-height: 30px ! important;
+}
+.lh-4{
+    line-height: 38px ! important;
+}
+img{
+    object-fit: cover;
+}
+th{
+    font-weight: 500;
+}
+hr{
+    height: 0.5px ! important;
+}
+.no-wrap{
+    white-space: nowrap;
+}
+.form{
+    width: 100%;
+    max-width: 350px;
+    margin: auto;
+}
+
+
